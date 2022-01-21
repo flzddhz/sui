@@ -1,0 +1,4 @@
+# Project exclude paths
+/cloud-client/target/
+/cloud-provider/target/
+/eureka-server/target/

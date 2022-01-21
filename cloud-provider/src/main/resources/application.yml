@@ -1,0 +1,49 @@
+server:
+  port: 8072
+
+spring:
+  application:
+    #应用名称（在注册中显示的）
+    name: cloud-provider
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: true
+    encoding: UTF-8
+    mode: LEGACYHTML5    #默认HTML5强检查
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@10.1.100.46:1521:rptdb
+    username: report
+    password: report
+
+eureka:
+  client:
+    #此客户端是否获取eureka服务器注册表上的注册信息，默认为true
+    fetch-registry: false
+    #实例是否在eureka服务器上注册自己的信息以供其他服务发现，默认为true,即自己注册自己。
+    register-with-eureka: true
+
+    serviceUrl:
+      defaultZone: http://localhost:8071/eureka
+      #defaultZone 这个是不会提示的，此处需要自己写  值是与注册中心的那个一样的  不然不会发现这个服务
+      #实际上属性应该是service-url,这个属性是个map（key-value）格式；当key是defaultZone的时候才能被解析；所以这里没有提示，
+      #但是自己还需要写一个defaultZone；
+  #服务注册中心实例的主机名
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: 127.0.0.1:8072   #显示在注册中心的名称
+mybatis-plus:
+  type-aliases-package: com.cloudprovider.entity
+  mapper-locations: classpath:mapper/*.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"      #默认只开启info 和 health   * 表示全部
+info:                     #info 配置还没搞明白，但是这样做至少不会报错
+  app.name: eureka-server
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
