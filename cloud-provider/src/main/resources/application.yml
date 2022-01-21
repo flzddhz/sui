@@ -47,3 +47,4 @@ info:                     #info 配置还没搞明白，但是这样做至少不
   build.artifactId: $project.artifactId$
   build.version: $project.version$
 
+
