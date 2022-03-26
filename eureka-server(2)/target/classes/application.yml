@@ -1,10 +1,10 @@
 server:
-  port: 7001
+  port: 7003
 
 spring:
   application:
     #应用名称（在注册中显示的）
-    name: eureka-server
+    name: eureka-server(2)
   thymeleaf:
 #    prefix: classpath:/templates/
 #      suffix: .html
@@ -24,11 +24,11 @@ eureka:
     #与Eureka注册服务中心的通信zone和url地址
     serviceUrl:
       #http://localhost:8080/eureka/eureka
-      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka  #单机版
-      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/ #集群版 将当前的 Eureka Server 注册到 7002 和 7003 上，形成一组互相注册的
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ #集群版 将当前的 Eureka Server 注册到 7001 和 7002 上，形成一组互相注册的
   #服务注册中心实例的主机名
   instance:
-    hostname: eureka7001.com  #eureka服务端的实例名称
+    hostname: eureka7003.com #Eureka Server 实例名称
     #本身就是注册中心，不需要在注册中心显示该服务，所以不需要下面两个
 #    prefer-ip-address: true       #访问路径可显示IP地址
 #    instance-id: 127.0.0.1:7001   #显示在主注册中心的名称

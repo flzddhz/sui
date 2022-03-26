@@ -1,0 +1,19 @@
+搭建springcloud
+    里面项目都是用springboot的
+        目前使用的是 HTML5 + thymeleeaf  (因为比较熟悉！！)  注册中心好像不用这个
+        连接oracle + mybatisplus  我理解的应该是在生产服务这边就可以了  我把数据库换成了oracle（由于我的服务是组织决策的我自己的mysql启动起来会很麻烦！！！）
+        换成网络的数据库了  mariadb  因为kali不允许装mysql了
+
+
+自己理解的一些东西  在eureka-server界面
+Application：STUDY-PRO，该取值为 该服务配置文件 application.yml 中 spring.application.name 的值。
+Status： UP (1) - study-pro，UP 表示服务在线， (1) 表示有集群中服务的数量，study-pro 则是 该服务配置文件 application.yml 中 eureka.instance.instance-id 的值。
+
+开启集群需要设置host文件
+我是windows  在C:/Windows/System/drivers/etc/hosts 中   system  ke可能是system32 或者 system64
+加入一下这三行    就是我们在三个注册中心写上去的
+#Spring Cloud eureka 集群
+127.0.0.1 eureka7001.com
+127.0.0.1 eureka7002.com
+127.0.0.1 eureka7003.com
+linux  mac  在  /etc/hosts

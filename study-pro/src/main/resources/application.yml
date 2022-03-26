@@ -1,0 +1,50 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    #应用名称（在注册中显示的）
+    name: study-pro
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: true
+    encoding: UTF-8
+    mode: LEGACYHTML5    #默认HTML5强检查
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://111.229.178.45:3306/mysql
+    username: root
+    password: 123456
+
+eureka:
+  client:
+    #此客户端是否能获取eureka服务器注册表上的其他服务信息，默认为true false表示不需要  该服务是提供者 不需要获取其他信息
+    fetch-registry: false
+    #实例是否在eureka服务器上注册自己的信息以供其他服务发现，默认为true， false表示不向注册中心注册自己 提供者是需要的
+    register-with-eureka: true
+
+    serviceUrl:
+      #defaultZone: http://localhost:7001/eureka   #单机版只用在7001上注册自己
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #将服务注册到 Eureka Server 集群
+      #defaultZone 这个是不会提示的，此处需要自己写  值是与注册中心的那个一样的  7001是注册中心在 application.yml 中暴露出来的  不然不会发现这个服务
+      #实际上属性应该是service-url,这个属性是个map（key-value）格式；当key是defaultZone的时候才能被解析；所以这里没有提示，
+      #但是自己还需要写一个defaultZone；
+  #服务注册中心实例的主机名
+  instance:
+    prefer-ip-address: true       #显示访问路径的 ip 地址
+    instance-id: study-pro   #显示在注册中心的名称     自定义服务名称信息
+mybatis-plus:
+  type-aliases-package: com.cloudprovider.entity
+  mapper-locations: classpath:mapper/*.xml
+management:               ## Spring Boot 2.50对 actuator 监控屏蔽了大多数的节点，只暴露了 heath 节点，本段配置（*）就是为了开启所有的节点
+  endpoints:
+    web:
+      exposure:
+        include: "*"      #默认只开启info 和 health   * 表示全部   *是yml的关键字  需要加引号
+info:                     #info 配置还没搞明白，但是这样做至少不会报错
+  app.name: eureka-server
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
+

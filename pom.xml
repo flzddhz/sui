@@ -25,10 +25,10 @@
     <modules>
         <!--        注册中心-->
         <module>eureka-server</module>
-        <!--        生产者-->
-        <module>cloud-provider</module>
+        <!--        提供者-->
+        <module>study-pro</module>
         <!--        消费者-->
-        <module>cloud-client</module>
+        <module>study-con</module>
     </modules>
 
     <build>

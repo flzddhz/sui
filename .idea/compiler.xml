@@ -7,17 +7,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cloud-client" />
-        <module name="cloud-provider" />
+        <module name="share" />
         <module name="eureka-server" />
+        <module name="study-pro" />
+        <module name="eureka-server (2)" />
+        <module name="study-con" />
+        <module name="eureka-server (1)" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="cloud-client" options="-parameters" />
-      <module name="cloud-provider" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="eureka-server (1)" options="-parameters" />
+      <module name="eureka-server (2)" options="-parameters" />
+      <module name="share" options="-parameters" />
+      <module name="study-con" options="-parameters" />
+      <module name="study-pro" options="-parameters" />
     </option>
   </component>
 </project>
