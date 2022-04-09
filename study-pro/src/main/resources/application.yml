@@ -26,7 +26,7 @@ eureka:
 
     serviceUrl:
       #defaultZone: http://localhost:7001/eureka   #单机版只用在7001上注册自己
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/  #将服务注册到 Eureka Server 集群
+      defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/,http://eureka7001.com:7001/eureka/  #(要写全路径，后面反斜杆也要)将服务注册到 Eureka Server 集群
       #defaultZone 这个是不会提示的，此处需要自己写  值是与注册中心的那个一样的  7001是注册中心在 application.yml 中暴露出来的  不然不会发现这个服务
       #实际上属性应该是service-url,这个属性是个map（key-value）格式；当key是defaultZone的时候才能被解析；所以这里没有提示，
       #但是自己还需要写一个defaultZone；

@@ -14,7 +14,7 @@ DS Replicas :集群的服务们
 Application：STUDY-PRO，该取值为 该服务配置文件 application.yml 中 spring.application.name 的值。
 Status： UP (1) - study-pro，UP 表示服务在线， (1) 表示有集群中服务的数量，study-pro 则是 该服务配置文件 application.yml 中 eureka.instance.instance-id 的值。
 
-开启集群需要设置host文件
+开启集群需要设置host文件  配合我们yml中的 eureka: instance: hostname:
 我是windows  在C:/Windows/System/drivers/etc/hosts 中   system  ke可能是system32 或者 system64
 加入一下这三行    就是我们在三个注册中心写上去的
 #Spring Cloud eureka 集群
